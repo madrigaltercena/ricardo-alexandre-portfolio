@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0f;
+  --background: #050507;
+  --surface: #0f0f12;
   --text: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
+  --primary: #6366f1;
+  --accent: #22d3ee;
+  --highlight: #f472b6;
+}
+
+* {
+  cursor: none;
 }
 
 body {
@@ -15,34 +23,16 @@ body {
   overflow-x: hidden;
 }
 
-/* Aurora Gradient Animation */
-.aurora-gradient {
-  background: linear-gradient(
-    120deg,
-    #0a0a0f 0%,
-    #1e1b4b 20%,
-    #312e81 40%,
-    #1e293b 60%,
-    #0f172a 80%,
-    #0a0a0f 100%
-  );
-  background-size: 200% 200%;
-  animation: aurora 15s ease infinite;
+.font-space-grotesk {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-@keyframes aurora {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Glassmorphism */
+/* Glassmorphism refined */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 15, 18, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Custom Scrollbar */
@@ -51,16 +41,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #6366f1, #06b6d4);
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #818cf8, #22d3ee);
+  background: linear-gradient(to bottom, #818cf8, #67e8f9);
 }
 
 /* Smooth scroll behavior */
@@ -78,4 +68,10 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary);
+  color: var(--text);
 }
